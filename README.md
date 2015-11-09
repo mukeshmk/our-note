@@ -3,6 +3,8 @@ DBMS Project for 5th Sem.
 
 If you want to try it out, here's what you would need to do.
 
+(NOTE: Make sure you retain the default password for root !!)
+
 1.  Download "wampserver" from http://www.wampserver.com/en/
 
 2.  Install it and start the server.
