@@ -77,6 +77,7 @@
 		(
 			'$note_id',
 			'$i',
+			'$user_id',
 			'$item[$i]',
 			'$comp'
 		);";	
