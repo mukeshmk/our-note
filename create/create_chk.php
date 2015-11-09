@@ -42,8 +42,9 @@
 	</nav>
 	<br><br><br>
 	<h1 align="center">Fill these fields:</h1>
+
     <body>
-        <form action="cn_php.php" method="post" autocomplete="off" id="note_create">
+        <form action="chkbx.php" method="post" autocomplete="off">
 			<table style="width:0%" align="center">
 			<tr>
 				
@@ -76,7 +77,7 @@
 				</tr>
 				<tr>
 					<td>Date to Remind:</td>						
-					<td><input type="date" name="dor" required></td>
+					<td><input type="date" name="dtr" required></td>
 				</tr>
 			</table>
 			</td>			
@@ -101,12 +102,12 @@
 					</td>
 				</tr>
 				<tr>
-					<td>Check Box ID: </td>
-					<td><input type="text" name="cb_id" required></textarea></td>
-				</tr>
-				<tr>
 					<td>Time to Remind: </td>
 					<td><input type="time" name="ttr" required></td>
+				</tr>
+				<tr>
+					<td>No of Check Boxes: </td>
+					<td><input type="text" name="no_cb" required></textarea></td>
 				</tr>
 			</table>
 			</td>
@@ -117,7 +118,7 @@
 				<div class="col-sm-5"></div>
 				<div class="col-sm-1">
 					<button type="submit" class="btn btn-info">
-						<span class="glyphicon glyphicon-plus-sign"></span> Insert
+						<span class="glyphicon glyphicon-plus-sign"></span> Add Check Boxes
 					</button>	
 				</div>
 				<div class="col-sm-6"></div>
