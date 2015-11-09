@@ -33,7 +33,7 @@
 	(
   		note_id INT,
   		user_id INT,
-  		notes VARCHAR(100),
+  		notes VARCHAR(500),
   		title VARCHAR(20),
   		n_group VARCHAR(30) DEFAULT 'Personal',
   		clr_code VARCHAR(20) Default 'WHITE',
@@ -66,7 +66,7 @@
 	(
   		note_id INT,
   		chkbox_no INT,
-  		item VARCHAR(50),
+  		item VARCHAR(100),
   		comp INT DEFAULT 0 CHECK(comp IN (1,0)),
   		CONSTRAINT fk3 FOREIGN KEY (note_id) REFERENCES Note(note_id),
   		CONSTRAINT pk3 PRIMARY KEY(chkbox_no,note_id) 
