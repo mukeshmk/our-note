@@ -40,21 +40,25 @@
     		</div>
   		</div>
 	</nav>
+</html>
+
 <?php
-	$note_id=$_POST['note_id'];
-	$group=$_POST['group'];
-	$imp=$_POST['imp'];
-	$dtr=$_POST['dtr'];
-	$ttr=$_POST['ttr'];
-	$title=$_POST['title'];
-	$clr_code=$_POST['clr_code'];
-	$note=NULL;
+	
+	echo('<br><br><br>');
+	
+	$note_id=$_SESSION['note_id'];
+	$no_cb=$_SESSION['no_cb'];
+	$item = array($_POST['chk_box'][0]);
+	$i=1;
+	while($i<$no_cb)
+	{
+		array_push($item,$_POST['chk_box'][$i]);
+		$i=$i+1;
+	}
+	
 	$comp=0;
 
 	$user_id=$_SESSION['SESS_MEMBER_ID'];
-
-	$created='01/01/2015';
-	$modified=$created;
 	
 	$connect=mysqli_connect("localhost","root","");
 	if (mysqli_connect_errno()) 
@@ -65,54 +69,25 @@
 	$c="USE dbms_pro;";
 	$c1=mysqli_query($connect,$c);
 
-	$q1="INSERT INTO Note VALUES
-	(
-		'$note_id',
-		'$user_id',
-		'$note',
-		'$title',
-		'$group',
-		'$clr_code',
-		'$imp',
-		'$comp'
-	);";	
-
-	if(!mysqli_query($connect,$q1))
+	$i=0;
+	while($i<$no_cb)
 	{
-		echo("Error description 1: " . mysqli_error($connect));
-		echo('<br><br>');
+		
+		$q1="INSERT INTO Chkbox VALUES
+		(
+			'$note_id',
+			'$i',
+			'$item[$i]',
+			'$comp'
+		);";	
+
+		if(!mysqli_query($connect,$q1))
+		{
+			echo("Error description 3: " . mysqli_error($connect));
+			echo('<br><br>');
+		}
+		$i = $i + 1;
 	}
-
-	$q1="INSERT INTO Date_N VALUES
-	(
-		'$user_id',
-		'$note_id',
-		'$dtr',
-		'$ttr',
-		'$created',
-		'$modified'
-	);";	
-
-	if(!mysqli_query($connect,$q1))
-	{
-		echo("Error description 2: " . mysqli_error($connect));
-		echo('<br><br>');
-	}
-
-	$q1="INSERT INTO Chkbox VALUES
-	(
-		'$note_id',
-		'$chkbox_no',
-		'$item',
-		'$comp'
-	);";	
-
-	if(!mysqli_query($connect,$q1))
-	{
-		echo("Error description 3: " . mysqli_error($connect));
-		echo('<br><br>');
-	}
-	
 	echo("<br><br><br>");
 	//require "../display/display.php";
 	mysqli_close($connect);
