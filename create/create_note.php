@@ -48,6 +48,71 @@
 			<tr>
 				
 			<td>
+			<table style="width:0%" align="center" class="table table-bordered table-hover table-condensed">
+				<tr>
+					<td>Note ID: </td>
+					<td><input type="text" name="note_id" required></td>
+				</tr>
+				<tr>
+					<td>Group: </td>						
+					<td>
+						<select name="group" required>
+							<option value="">Select...</option>
+							<option value="Work">Work</option>
+							<option value="House">House</option>
+							<option value="Academic">Academic</option>
+							<option value="Casual">Casual</option>
+							<option value="Personal">Personal</option>
+							<option value="Others">Others</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Important: </td>						
+					<td>
+						<input type="radio" name="imp" value="1" required>Yes
+						<input type="radio" name="imp" value="0" required>No
+					</td>
+				</tr>
+				<tr>
+					<td>Date to Remind:</td>						
+					<td><input type="date" name="dtr" required></td>
+				</tr>
+				<tr>
+					<td>Time to Remind: </td>
+					<td><input type="time" name="ttr" required></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="text" name="" disabled></td>
+				</tr>
+			</table>
+			</td>			
+			<td>
+			<table style="width:0%" align="right" class="table table-bordered table-hover table-condensed">
+				<tr>
+					<td>Title: </td>						
+					<td><input type="text" name="title" required></td>
+				</tr>
+				<tr>
+					<td>Color Code: </td>						
+					<td>
+						<select name="clr_code" required>
+							<option value="">Select...</option>
+							<option value="Red">Red</option>
+							<option value="Yellow">Yellow</option>
+							<option value="Blue">Blue</option>
+							<option value="Green">Green</option>
+							<option value="Violet">Violet</option>
+							<option value="Others">Others</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Note: </td>
+					<td><textarea rows="6" cols="" name="note" form="note_create"></textarea></td>
+				</tr>
+			</table>
 			</td>
 			</tr>
 			</table>
