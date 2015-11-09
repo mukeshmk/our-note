@@ -12,15 +12,24 @@
   		<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 	</head>
 	
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
   		<div class="container-fluid">
     		<div class="navbar-header">
-      			<a class="navbar-brand" href="http://www.hitachi.co.in/" target="_blank">Hitachi Solutions</a>
+      			<a class="navbar-brand" href="" target="">Our Note</a>
     		</div>
     		<div>
       			<ul class="nav navbar-nav">
         			<li class="active"><a href="home.php">Home</a></li>
-        			<li><a href="insert/input_page.php">Insert</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							Create <span class="caret"></span>	
+						</a>
+						<ul class="dropdown-menu">
+            				<li><a href="create/create_note.php">Note</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="create/create_chk.php">Check Box</a></li>
+          				</ul>
+					</li>
         			<li><a href="display/disp.php">Display</a></li>
 					<li><a href="search/search.php">Search</a></li>
 					<li><a href="update/update.php">Update</a></li>
@@ -40,7 +49,7 @@
     		</div>
   		</div>
 	</nav>
-	
+	<br><br><br>
 	<body>
 		<div class="container">
 			<div class="jumbotron">
