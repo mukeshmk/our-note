@@ -1,4 +1,6 @@
-
+<?php
+	require_once('../login/auth.php');
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -19,18 +21,18 @@
     		</div>
     		<div>
       			<ul class="nav navbar-nav">
-        			<li class="active"><a href="../home.php">Home</a></li>
+        			<li><a href="../home.php">Home</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 							Create <span class="caret"></span>	
 						</a>
 						<ul class="dropdown-menu">
-            				<li><a href="create/create_note.php">Note</a></li>
+            				<li><a href="../create/create_note.php">Note</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="create/create_chk.php">Check Box</a></li>
+							<li><a href="../create/create_chk.php">Check Box</a></li>
           				</ul>
 					</li>
-        			<li><a href="disp.php">Display</a></li>
+        			<li class="active"><a href="disp.php">Display</a></li>
 					<li><a href="../search/search.php">Search</a></li>
 					<li><a href="../update/update.php">Update</a></li>
 					<li><a href="../delete/del_disp.php">Delete</a></li>
@@ -96,7 +98,8 @@
 		
                 <div class="row">
                     <?php $x=0; foreach ($notes as $note): ?>
-                    <?php echo "<div class=\"col-md-4 text-center\"><div class=\"box\"><div class=\"box-content\">
+                    <?php echo "<div class='col-md-4 text-center'>
+                    	        <div class='box'><div class='box-content'>
                                 <h1 class=\"tag-title\">";?>
                                 <?php echo $titles[$x]; ?>
                                 <?php echo "</h1><hr />"; ?>
