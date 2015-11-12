@@ -22,7 +22,7 @@ require_once('../login/auth.php');
     		</div>
     		<div>
       			<ul class="nav navbar-nav">
-        			<li class="active"><a href="../home.php">Home</a></li>
+        			<li><a href="../home.php">Home</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 							Create <span class="caret"></span>	
@@ -33,20 +33,12 @@ require_once('../login/auth.php');
 							<li><a href="../create/create_chk.php">Check Box</a></li>
           				</ul>
 					</li>
-        			<li><a href="disp.php">Display</a></li>
+        			<li class="active"><a href="disp.php">Display</a></li>
 					<li><a href="../search/search.php">Search</a></li>
 					<li><a href="../update/update.php">Update</a></li>
-					<li><a href="disp.php">Delete</a></li>
+					<li><a href="../delete/delete.php">Delete</a></li>
       			</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<?php 
-						if($_SESSION['SU']==TRUE)
-						{
-							echo"
-					<li><a href='create_user/create_su.php'><span class='glyphicon glyphicon-user'></span> Create SU</a></li>
-							";
-						}
-					?>
         			<li><a href='index.php'><span class="glyphicon glyphicon-off"></span> Log Out</a></li>
       			</ul>
     		</div>
@@ -59,10 +51,10 @@ require_once('../login/auth.php');
     {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
-    else{
-        mysqli_set_charset($connect, 'utf8');
+    else
+	{
+		mysqli_set_charset($connect, 'utf8');
         if (!mysqli_select_db($connect, 'dbms_pro')) 
-
         { 
             echo "Unable to locate database."; 
         }
@@ -72,39 +64,24 @@ require_once('../login/auth.php');
     $result = mysqli_query($connect, "SELECT title, notes, note_id FROM Note where user_id = '".$_SESSION['SESS_MEMBER_ID']."'");
 
     if (!$result)  
-
     {  
-    echo "Error fetching data: " . mysqli_error($connect);  
+    	echo "Error fetching data: " . mysqli_error($connect);  
     }  
-
-  
 
     while ($row = mysqli_fetch_array($result))  
-
     {  
-    
-    $titles[] = $row['title'];
-    $notes[] = $row['notes'];  
-    $note_id[] = $row['note_id'];
+    	$titles[] = $row['title'];
+    	$notes[] = $row['notes'];  
+    	$note_id[] = $row['note_id'];
     }  
-
-    
-
-    ?>
-
-
-
-
-
+?>
 	<br><br><br>
 	<body>
 
 		<div class="container">
-			
 			<div class="container">
 	           <div class="row">
-		
-                <div class="row">
+				   <div class="row">
                     <?php $x=0; foreach ($notes as $note): ?>
                     <?php echo "<div class=\"col-md-4 text-center\"><div class=\"box\"><div class=\"box-content\">
                                 <h1 class=\"tag-title\">";?>
@@ -119,20 +96,16 @@ require_once('../login/auth.php');
                                 <a href=\"ppc.html\" class=\"btn btn-primary\">Edit</a> 
                                 <a href=\"del.php?id=".$note_id[$x]."\""; ?>
                                 
-
                                 <?php echo " class=\"btn btn-primary\">Delete</a>
                                 <a href=\"disp.php\" class=\"btn btn-primary\">Learn more</a></p>
                             </div>
                         </div>
                     </div>"; ?>
-
-                    <?php $x=$x+1; endforeach; echo $note_id[2];?>
-                    
+                    <?php $x=$x+1; endforeach;?>
                 </div>           
             </div>
 	   </div>
     </div>
 	
-
 	</body>
 </html>
