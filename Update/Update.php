@@ -68,9 +68,6 @@
 	$note=$row['note'];
 	$comp=$row['comp'];
 
-
-	
-
 	if(!mysqli_query($connect,$q1))
 	{
 		echo("Error description 1: " . mysqli_error($connect));
@@ -103,13 +100,6 @@
 	
 	mysqli_close($connect);
 ?>
-
-
-
-
-
-
-
 
 	<h1 align="center">Fill these fields:</h1>
     <body>
