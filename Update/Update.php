@@ -134,11 +134,11 @@
 				</tr>
 				<tr>
 					<td>Date to Remind:</td>						
-					<td><input type="date" name="dtr" required></td>
+					<td><input type="date" name="dtr" required value="<?php echo $dtr; ?>">></td>
 				</tr>
 				<tr>
 					<td>Time to Remind: </td>
-					<td><input type="time" name="ttr" required></td>
+					<td><input type="time" name="ttr" required value="<?php echo $ttr; ?>">></td>
 				</tr>
 				<tr>
 					<td></td>
@@ -150,7 +150,7 @@
 			<table style="width:0%" align="right" class="table table-bordered table-hover table-condensed">
 				<tr>
 					<td>Title: </td>						
-					<td><input type="text" name="title" required></td>
+					<td><input type="text" name="title" required value="<?php echo $title; ?>">></td>
 				</tr>
 				<tr>
 					<td>Color Code: </td>						
@@ -168,7 +168,7 @@
 				</tr>
 				<tr>
 					<td>Note: </td>
-					<td><textarea rows="6" cols="" name="note" form="note_create"></textarea></td>
+					<td><textarea rows="6" cols="" name="note" form="note_create" value="<?php echo $note; ?>"></textarea></td>
 				</tr>
 			</table>
 			</td>
