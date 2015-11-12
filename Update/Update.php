@@ -46,6 +46,7 @@
 	
 
 	$user_id=$_SESSION['SESS_MEMBER_ID'];
+	$note_id=$_GET["note_id"];
 
 	$created=date("Y-m-d");
 	$modified=$created;
@@ -59,10 +60,10 @@
 	$c="USE dbms_pro;";
 	$c1=mysqli_query($connect,$c);
 
-	$q1="SELECT * FROM Note WHERE user_id=$user_id;";	
+	$q1="SELECT * FROM Note WHERE user_id=$user_id AND note_id=$note_id;";	
 	$result = $connect->query($q1);
 	$row=$result->fetch_assoc();
-	$note_id=$row['note_id']
+	//$note_id=$row['note_id'];
 	$group=$row['group'];
 	$imp=$row['imp'];
 
