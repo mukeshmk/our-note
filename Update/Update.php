@@ -1,6 +1,6 @@
-//<?php
-//	require_once('../login/auth.php');
-//?>
+<?php
+	require_once('../login/auth.php');
+?>
 <html>
 	<head>
 		<title>Input</title>
@@ -19,7 +19,7 @@
     		<div>
       			<ul class="nav navbar-nav">
         			<li><a href="../home.php">Home</a></li>
-					<li class="active" class="dropdown">
+					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 							Create <span class="caret"></span>	
 						</a>
@@ -31,7 +31,7 @@
 					</li>
         			<li><a href="../display/disp.php">Display</a></li>
 					<li><a href="../search/search.php">Search</a></li>
-					<li><a href="../update/update.php">Update</a></li>
+					<li class="active"><a href="update.php">Update</a></li>
 					<li><a href="../delete/del_disp.php">Delete</a></li>
       			</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -46,10 +46,9 @@
 	
 
 	$user_id=$_SESSION['SESS_MEMBER_ID'];
-	$note_id=$_GET["note_id"];
-
-	$created=date("Y-m-d");
-	$modified=$created;
+	$note_id=$_GET['id'];
+	echo($note_id);
+	echo($user_id);
 	
 	$connect=mysqli_connect("localhost","root","");
 	if (mysqli_connect_errno()) 
@@ -66,7 +65,6 @@
 	//$note_id=$row['note_id'];
 	$group=$row['group'];
 	$imp=$row['imp'];
-
 	$title=$row['title'];
 	$clr_code=$row['clr_code'];
 	$note=$row['note'];
@@ -90,7 +88,7 @@
 		echo('<br><br>');
 	}
 	echo("<br><br><br>");
-	//require "../display/display.php";
+	
 	mysqli_close($connect);
 ?>
 
@@ -111,7 +109,7 @@
 			<table style="width:0%" align="center" class="table table-bordered table-hover table-condensed">
 				<tr>
 					<td>Note ID: </td>
-					<td><input type="text" name="note_id"  required></td>
+					<td><input type="text" name="note_id" required value="<?php echo $note_id; ?>"></td>
 				</tr>
 				<tr>
 					<td>Group: </td>						

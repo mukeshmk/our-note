@@ -93,7 +93,7 @@ require_once('../login/auth.php');
                                 <?php echo "<br />
                                 
                                 <p>                          
-                                <a href=\"ppc.html\" class=\"btn btn-primary\">Edit</a> 
+                                <a href=\"../update/update.php?id=".$note_id[$x]."\" class=\"btn btn-primary\">Edit</a> 
                                 <a href=\"del.php?id=".$note_id[$x]."\""; ?>
                                 
                                 <?php echo " class=\"btn btn-primary\">Delete</a>
