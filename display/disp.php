@@ -1,5 +1,6 @@
-<?php
-	require_once('../login/auth.php');
+
+<?php 
+require_once('../login/auth.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +22,7 @@
     		</div>
     		<div>
       			<ul class="nav navbar-nav">
-        			<li><a href="../home.php">Home</a></li>
+        			<li class="active"><a href="../home.php">Home</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 							Create <span class="caret"></span>	
@@ -32,12 +33,20 @@
 							<li><a href="../create/create_chk.php">Check Box</a></li>
           				</ul>
 					</li>
-        			<li class="active"><a href="disp.php">Display</a></li>
+        			<li><a href="disp.php">Display</a></li>
 					<li><a href="../search/search.php">Search</a></li>
 					<li><a href="../update/update.php">Update</a></li>
-					<li><a href="../delete/del_disp.php">Delete</a></li>
+					<li><a href="disp.php">Delete</a></li>
       			</ul>
 				<ul class="nav navbar-nav navbar-right">
+					<?php 
+						if($_SESSION['SU']==TRUE)
+						{
+							echo"
+					<li><a href='create_user/create_su.php'><span class='glyphicon glyphicon-user'></span> Create SU</a></li>
+							";
+						}
+					?>
         			<li><a href='index.php'><span class="glyphicon glyphicon-off"></span> Log Out</a></li>
       			</ul>
     		</div>
@@ -60,7 +69,7 @@
     }
 
 
-    $result = mysqli_query($connect, "SELECT title, notes FROM Note where user_id = '".$_SESSION['SESS_MEMBER_ID']."'");
+    $result = mysqli_query($connect, "SELECT title, notes, note_id FROM Note where user_id = '".$_SESSION['SESS_MEMBER_ID']."'");
 
     if (!$result)  
 
@@ -76,9 +85,16 @@
     
     $titles[] = $row['title'];
     $notes[] = $row['notes'];  
+    $note_id[] = $row['note_id'];
     }  
 
+    
+
     ?>
+
+
+
+
 
 	<br><br><br>
 	<body>
@@ -90,20 +106,27 @@
 		
                 <div class="row">
                     <?php $x=0; foreach ($notes as $note): ?>
-                    <?php echo "<div class='col-md-4 text-center'>
-                    	        <div class='box'><div class='box-content'>
+                    <?php echo "<div class=\"col-md-4 text-center\"><div class=\"box\"><div class=\"box-content\">
                                 <h1 class=\"tag-title\">";?>
                                 <?php echo $titles[$x]; ?>
                                 <?php echo "</h1><hr />"; ?>
                                 <?php echo $note; ?>
 
+                                <?php echo "<br />"; ?>
                                 <?php echo "<br />
-                                <a href=\"ppc.html\" class=\"btn btn-block btn-primary\">Learn more</a>
+                                
+                                <p>                          
+                                <a href=\"ppc.html\" class=\"btn btn-primary\">Edit</a> 
+                                <a href=\"del.php?id=".$note_id[$x]."\""; ?>
+                                
+
+                                <?php echo " class=\"btn btn-primary\">Delete</a>
+                                <a href=\"disp.php\" class=\"btn btn-primary\">Learn more</a></p>
                             </div>
                         </div>
                     </div>"; ?>
 
-                    <?php $x=$x+1; endforeach; ?>
+                    <?php $x=$x+1; endforeach; echo $note_id[2];?>
                     
                 </div>           
             </div>
