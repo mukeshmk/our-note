@@ -47,8 +47,6 @@
 
 	$user_id=$_SESSION['SESS_MEMBER_ID'];
 	$note_id=$_GET['id'];
-	echo($note_id);
-	echo($user_id);
 	
 	$connect=mysqli_connect("localhost","root","");
 	if (mysqli_connect_errno()) 
@@ -70,13 +68,16 @@
 	$note=$row['note'];
 	$comp=$row['comp'];
 
+
+	
+
 	if(!mysqli_query($connect,$q1))
 	{
 		echo("Error description 1: " . mysqli_error($connect));
 		echo('<br><br>');
 	}
 
-	$q1="SELECT * FROM Date_N WHERE user_id=$user_id;";	
+	$q1="SELECT * FROM Date_N WHERE user_id=$user_id AND note_id=$note_id;";	
 	$result1 = $connect->query($q1);
 	$row=$result1->fetch_assoc();
 	$dtr=$row['dtr'];
@@ -87,6 +88,17 @@
 		echo("Error description 2: " . mysqli_error($connect));
 		echo('<br><br>');
 	}
+
+	$modified=date("Y-m-d");
+
+	$q1="UPDATE Date_N SET modified=$modified WHERE user_id=$user_id AND note_id=$note_id;"  ;
+
+	if(!mysqli_query($connect,$q1))
+	{
+		echo("Error description 3: " . mysqli_error($connect));
+		echo('<br><br>');
+	}
+
 	echo("<br><br><br>");
 	
 	mysqli_close($connect);
