@@ -1,4 +1,7 @@
 
+<?php 
+require_once('../login/auth.php');
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,15 +28,15 @@
 							Create <span class="caret"></span>	
 						</a>
 						<ul class="dropdown-menu">
-            				<li><a href="create/create_note.php">Note</a></li>
+            				<li><a href="../create/create_note.php">Note</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="create/create_chk.php">Check Box</a></li>
+							<li><a href="../create/create_chk.php">Check Box</a></li>
           				</ul>
 					</li>
         			<li><a href="disp.php">Display</a></li>
 					<li><a href="../search/search.php">Search</a></li>
 					<li><a href="../update/update.php">Update</a></li>
-					<li><a href="../delete/del_disp.php">Delete</a></li>
+					<li><a href="disp.php">Delete</a></li>
       			</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<?php 
@@ -66,7 +69,7 @@
     }
 
 
-    $result = mysqli_query($connect, "SELECT title, notes FROM Note where user_id = '".$_SESSION['SESS_MEMBER_ID']."'");
+    $result = mysqli_query($connect, "SELECT title, notes, note_id FROM Note where user_id = '".$_SESSION['SESS_MEMBER_ID']."'");
 
     if (!$result)  
 
@@ -82,9 +85,16 @@
     
     $titles[] = $row['title'];
     $notes[] = $row['notes'];  
+    $note_id[] = $row['note_id'];
     }  
 
+    
+
     ?>
+
+
+
+
 
 	<br><br><br>
 	<body>
@@ -102,13 +112,21 @@
                                 <?php echo "</h1><hr />"; ?>
                                 <?php echo $note; ?>
 
+                                <?php echo "<br />"; ?>
                                 <?php echo "<br />
-                                <a href=\"ppc.html\" class=\"btn btn-block btn-primary\">Learn more</a>
+                                
+                                <p>                          
+                                <a href=\"ppc.html\" class=\"btn btn-primary\">Edit</a> 
+                                <a href=\"del.php?id=".$note_id[$x]."\""; ?>
+                                
+
+                                <?php echo " class=\"btn btn-primary\">Delete</a>
+                                <a href=\"disp.php\" class=\"btn btn-primary\">Learn more</a></p>
                             </div>
                         </div>
                     </div>"; ?>
 
-                    <?php $x=$x+1; endforeach; ?>
+                    <?php $x=$x+1; endforeach; echo $note_id[2];?>
                     
                 </div>           
             </div>
