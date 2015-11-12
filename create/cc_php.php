@@ -90,6 +90,9 @@
 		$i = $i + 1;
 	}
 	echo("<br><br><br>");
-	//require "../display/display.php";
 	mysqli_close($connect);
 ?>
+<html>
+	<meta http-equiv="refresh" content="0; URL=../display/disp.php">
+	<meta name="keywords" content="automatic redirection"
+</html>
