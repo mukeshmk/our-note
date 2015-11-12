@@ -38,14 +38,6 @@
 					<li><a href="../delete/del_disp.php">Delete</a></li>
       			</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<?php 
-						if($_SESSION['SU']==TRUE)
-						{
-							echo"
-					<li><a href='create_user/create_su.php'><span class='glyphicon glyphicon-user'></span> Create SU</a></li>
-							";
-						}
-					?>
         			<li><a href='index.php'><span class="glyphicon glyphicon-off"></span> Log Out</a></li>
       			</ul>
     		</div>
