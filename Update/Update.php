@@ -117,21 +117,21 @@
 					<td>Group: </td>						
 					<td>
 						<select name="group" required>
-							<option value="">Select...</option>
-							<option value="Work">Work</option>
-							<option value="House">House</option>
-							<option value="Academic">Academic</option>
-							<option value="Casual">Casual</option>
-							<option value="Personal">Personal</option>
-							<option value="Others">Others</option>
+							<option value="" >Select...</option>
+							<option value="Work" <?php if($group=="Work") echo "selected"; ?> >Work</option>
+							<option value="House" <?php if($group=="House") echo "selected"; ?>>House</option>
+							<option value="Academic" <?php if($group=="Academic") echo "selected"; ?>>Academic</option>
+							<option value="Casual" <?php if($group=="Casual") echo "selected"; ?>>Casual</option>
+							<option value="Personal" <?php if($group=="Personal") echo "selected"; ?>>Personal</option>
+							<option value="Others" <?php if($group=="Others") echo "selected"; ?>>Others</option>
 						</select>
 					</td>
 				</tr>
 				<tr>
 					<td>Important: </td>						
 					<td>
-						<input type="radio" name="imp" value="1" required>Yes
-						<input type="radio" name="imp" value="0" required>No
+						<input type="radio" name="imp" value="1" required <?php if($imp=="1") echo "checked"; ?>>Yes
+						<input type="radio" name="imp" value="0" required <?php if($imp=="0") echo "checked"; ?>>No
 					</td>
 				</tr>
 				<tr>
@@ -159,12 +159,12 @@
 					<td>
 						<select name="clr_code" required>
 							<option value="">Select...</option>
-							<option value="Red">Red</option>
-							<option value="Yellow">Yellow</option>
-							<option value="Blue">Blue</option>
-							<option value="Green">Green</option>
-							<option value="Violet">Violet</option>
-							<option value="Others">Others</option>
+							<option value="Red" <?php if($clr_code=="Red") echo "selected"; ?>>Red</option>
+							<option value="Yellow"<?php if($clr_code=="Yellow") echo "selected"; ?>>Yellow</option>
+							<option value="Blue" <?php if($clr_code=="Blue") echo "selected"; ?>>Blue</option>
+							<option value="Green" <?php if($clr_code=="Green") echo "selected"; ?>>Green</option>
+							<option value="Violet" <?php if($clr_code=="Violet") echo "selected"; ?>>Violet</option>
+							<option value="Others" <?php if($clr_code=="Others") echo "selected"; ?>>Others</option>
 						</select>
 					</td>
 				</tr>
