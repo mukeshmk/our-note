@@ -24,9 +24,9 @@
 							Create <span class="caret"></span>	
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="create_note.php">Note</a></li>
+							<li><a href="../create/create_note.php">Note</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="create_chk.php">Check Box</a></li>
+							<li><a href="../create/create_chk.php">Check Box</a></li>
           				</ul>
 					</li>
         			<li><a href="../display/disp.php">Display</a></li>
@@ -42,9 +42,6 @@
 	</nav>
 	<br><br><br>
 <?php
-	echo('<br><br><br>');
-	
-
 	$user_id=$_SESSION['SESS_MEMBER_ID'];
 	$note_id=$_GET['id'];
 	
@@ -97,13 +94,12 @@
 	}
 
 	echo("<br><br><br>");
-	echo $note_id;
 	mysqli_close($connect);
 ?>
 
 	<h1 align="center">Fill these fields:</h1>
     <body>
-        <form action="update_nt.php" method="post" autocomplete="off" id="note_create">
+        <form action="update_nt.php" method="post" autocomplete="off" id="note_update">
 			<table style="width:0%" align="center">
 			<tr>
 				
@@ -111,7 +107,7 @@
 			<table style="width:0%" align="center" class="table table-bordered table-hover table-condensed">
 				<tr>
 					<td>Note ID: </td>
-					<td><input type="text" name="note_id" required value="<?php echo $note_id; ?>"></td>
+					<td><input type="text" name="note_id"  required value="<?php echo $note_id; ?>"></td>
 				</tr>
 				<tr>
 					<td>Group: </td>						
@@ -170,7 +166,7 @@
 				</tr>
 				<tr>
 					<td>Note: </td>
-					<td><textarea rows="6" cols="" name="note" form="note_create"><?php echo $note; ?></textarea></td>
+					<td><textarea rows="6" cols="" name="note" form="note_update"><?php echo $note; ?></textarea></td>
 				</tr>
 			</table>
 			</td>
