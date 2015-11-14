@@ -103,7 +103,7 @@
 
 	<h1 align="center">Fill these fields:</h1>
     <body>
-        <form action="update_php.php" method="post" autocomplete="off" id="note_create">
+        <form action="update_nt.php" method="post" autocomplete="off" id="note_create">
 			<table style="width:0%" align="center">
 			<tr>
 				
