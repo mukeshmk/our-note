@@ -24,5 +24,8 @@
     {  
     	echo "Error fetching data: " . mysqli_error($connect);  
     }  
-    require('disp.php');
 ?>
+<html>
+	<meta http-equiv="refresh" content="0; URL=../display/disp.php">
+	<meta name="keywords" content="automatic redirection"
+</html>

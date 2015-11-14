@@ -116,7 +116,7 @@
                         echo "<br />
                                 <p>                          
                                 <a href=\"../update/Update.php?id=".$note_id[$x]."\" class=\"btn btn-primary\">Edit</a> 
-                                <a href=\"del.php?id=".$note_id[$x]."\"";
+                                <a href=\"../delete/del_note.php?id=".$note_id[$x]."\"";
                                 echo " class=\"btn btn-primary\">Delete</a>
                                 <a href=\"disp.php\" class=\"btn btn-primary\">Learn more</a></p>
                             </div>
