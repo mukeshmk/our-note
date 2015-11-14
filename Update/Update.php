@@ -60,12 +60,12 @@
 	$q1="SELECT * FROM Note WHERE user_id=$user_id AND note_id=$note_id;";	
 	$result = $connect->query($q1);
 	$row=$result->fetch_assoc();
-	//$note_id=$row['note_id'];
-	$group=$row['group'];
+
+	$group=$row['n_group'];
 	$imp=$row['imp'];
 	$title=$row['title'];
 	$clr_code=$row['clr_code'];
-	$note=$row['note'];
+	$note=$row['notes'];
 	$comp=$row['comp'];
 
 	if(!mysqli_query($connect,$q1))
@@ -77,8 +77,8 @@
 	$q1="SELECT * FROM Date_N WHERE user_id=$user_id AND note_id=$note_id;";	
 	$result1 = $connect->query($q1);
 	$row=$result1->fetch_assoc();
-	$dtr=$row['dtr'];
-	$ttr=$row['ttr'];
+	$dtr=$row['date_rem'];
+	$ttr=$row['time_rem'];
 
 	if(!mysqli_query($connect,$q1))
 	{
@@ -97,13 +97,13 @@
 	}
 
 	echo("<br><br><br>");
-	
+	echo $note_id;
 	mysqli_close($connect);
 ?>
 
 	<h1 align="center">Fill these fields:</h1>
     <body>
-        <form action="cn_php.php" method="post" autocomplete="off" id="note_create">
+        <form action="update_php.php" method="post" autocomplete="off" id="note_create">
 			<table style="width:0%" align="center">
 			<tr>
 				
@@ -136,11 +136,11 @@
 				</tr>
 				<tr>
 					<td>Date to Remind:</td>						
-					<td><input type="date" name="dtr" required value="<?php echo $dtr; ?>">></td>
+					<td><input type="date" name="dtr" required value="<?php echo $dtr; ?>"></td>
 				</tr>
 				<tr>
 					<td>Time to Remind: </td>
-					<td><input type="time" name="ttr" required value="<?php echo $ttr; ?>">></td>
+					<td><input type="time" name="ttr" required value="<?php echo $ttr; ?>"></td>
 				</tr>
 				<tr>
 					<td></td>
@@ -152,7 +152,7 @@
 			<table style="width:0%" align="right" class="table table-bordered table-hover table-condensed">
 				<tr>
 					<td>Title: </td>						
-					<td><input type="text" name="title" required value="<?php echo $title; ?>">></td>
+					<td><input type="text" name="title" required value="<?php echo $title; ?>"></td>
 				</tr>
 				<tr>
 					<td>Color Code: </td>						
@@ -170,7 +170,7 @@
 				</tr>
 				<tr>
 					<td>Note: </td>
-					<td><textarea rows="6" cols="" name="note" form="note_create" value="<?php echo $note; ?>"></textarea></td>
+					<td><textarea rows="6" cols="" name="note" form="note_create"><?php echo $note; ?></textarea></td>
 				</tr>
 			</table>
 			</td>
@@ -181,7 +181,7 @@
 				<div class="col-sm-5"></div>
 				<div class="col-sm-1">
 					<button type="submit" class="btn btn-info">
-						<span class="glyphicon glyphicon-plus-sign"></span> Insert
+						<span class="glyphicon glyphicon-plus-sign"></span> Update
 					</button>	
 				</div>
 				<div class="col-sm-6"></div>

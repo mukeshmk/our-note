@@ -76,7 +76,7 @@
 
 	$result4=mysqli_query($connect,$qry4);
 
-	$q1="INSERT INTO N_User VALUES(0,'root','root','root','root','root@admin.com','admin_dept','1234','Male',TRUE)";
+	$q1="INSERT INTO N_User VALUES(0,'root','root','root','root','root@admin.com','admin_dept','1234','M',TRUE)";
 	$r=mysqli_query($connect,$q1);
 
 	mysqli_close($connect);
