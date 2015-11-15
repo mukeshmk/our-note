@@ -53,7 +53,7 @@
 	$comp=0;
 
 	$user_id=$_SESSION['SESS_MEMBER_ID'];
-
+	echo $user_id;
 	$created=date("Y-m-d");
 	$modified=$created;
 	
@@ -104,5 +104,5 @@
 ?>
 <html>
 	<meta http-equiv="refresh" content="0; URL=../display/disp.php">
-	<meta name="keywords" content="automatic redirection"
+	<meta name="keywords" content="automatic redirection">
 </html>
