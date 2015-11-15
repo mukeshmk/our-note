@@ -65,23 +65,34 @@
 	$c="USE dbms_pro;";
 	$c1=mysqli_query($connect,$c);
 
-	$q1="UPDATE note SET notes=$note,title=$title,n_group=$group,clr_code=$clr_code,imp=$imp
+	$q1="UPDATE note SET notes='$note',title='$title'
 		WHERE user_id=$user_id AND note_id=$note_id;";	
-
 	if(!mysqli_query($connect,$q1))
 	{
 		echo("Error description 1: " . mysqli_error($connect));
 		echo('<br><br>');
 	}
 
-	$q1="UPDATE note SET date_rem=$dtr,time_rem=$ttr,modified=$modified
+	$q1="UPDATE note SET n_group='$group',clr_code='$clr_code',imp=$imp
 		WHERE user_id=$user_id AND note_id=$note_id;";	
+	if(!mysqli_query($connect,$q1))
+	{
+		echo("Error description 1: " . mysqli_error($connect));
+		echo('<br><br>');
+	}
 
+	$q1="UPDATE Date_N SET date_rem='$dtr',time_rem='$ttr',modified='$modified'
+		WHERE user_id=$user_id AND note_id=$note_id;";	
 	if(!mysqli_query($connect,$q1))
 	{
 		echo("Error description 2: " . mysqli_error($connect));
 		echo('<br><br>');
 	}
+
 	echo("<br><br><br>");
 	mysqli_close($connect);
 ?>
+<html>
+	<meta http-equiv="refresh" content="0; URL=../display/disp.php">
+	<meta name="keywords" content="automatic redirection">
+</html>

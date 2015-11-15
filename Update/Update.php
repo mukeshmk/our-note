@@ -83,16 +83,6 @@
 		echo('<br><br>');
 	}
 
-	$modified=date("Y-m-d");
-
-	$q1="UPDATE Date_N SET modified=$modified WHERE user_id=$user_id AND note_id=$note_id;"  ;
-
-	if(!mysqli_query($connect,$q1))
-	{
-		echo("Error description 3: " . mysqli_error($connect));
-		echo('<br><br>');
-	}
-
 	echo("<br><br><br>");
 	mysqli_close($connect);
 ?>

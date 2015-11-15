@@ -31,8 +31,8 @@
 	$qry2="
 	CREATE TABLE Note
 	(
-  		note_id INT,
   		user_id INT,
+		note_id INT,
   		notes VARCHAR(100),
   		title VARCHAR(20),
   		n_group VARCHAR(30) DEFAULT 'Personal',
@@ -50,10 +50,10 @@
 	(
   		user_id INT ,
   		note_id INT,
-  		date_rem DATE,
+  		date_rem VARCHAR(10),
   		time_rem VARCHAR(20),
-  		created DATE NOT NULL,
-  		modified DATE NOT NULL,
+  		created VARCHAR(10) NOT NULL,
+  		modified VARCHAR(10) NOT NULL,
   		CONSTRAINT pk2 PRIMARY KEY(note_id,user_id),
   		CONSTRAINT fk1 FOREIGN KEY (note_id) REFERENCES Note(note_id),
   		CONSTRAINT fk2 FOREIGN KEY (user_id) REFERENCES N_User(user_id)
@@ -64,9 +64,9 @@
 	$qry4="
 	CREATE TABLE Chkbox
 	(
+		user_id INT,
   		note_id INT,
   		chkbox_no INT,
-		user_id INT,
   		item VARCHAR(50),
   		comp INT DEFAULT 0 CHECK(comp IN (1,0)),
   		CONSTRAINT fk3 FOREIGN KEY (note_id) REFERENCES Note(note_id),
