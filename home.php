@@ -31,10 +31,7 @@
           				</ul>
 					</li>
         			<li><a href="display/disp.php">Display</a></li>
-					<li><a href="search/search.php">Search</a></li>
-					<li><a href="update/update.php">Update</a></li>
-					<li><a href="delete/del_disp.php">Delete</a></li>
-      			</ul>
+      			</ul>    
 				<ul class="nav navbar-nav navbar-right">
 					<?php 
 						if($_SESSION['SU']==TRUE)

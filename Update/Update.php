@@ -29,10 +29,7 @@
 							<li><a href="../create/create_chk.php">Check Box</a></li>
           				</ul>
 					</li>
-        			<li><a href="../display/disp.php">Display</a></li>
-					<li><a href="../search/search.php">Search</a></li>
-					<li class="active"><a href="update.php">Update</a></li>
-					<li><a href="../delete/del_disp.php">Delete</a></li>
+        			<li><a href="../display/disp.php">Display</a></li>					 
       			</ul>
 				<ul class="nav navbar-nav navbar-right">
         			<li><a href='../index.php'><span class="glyphicon glyphicon-off"></span> Log Out</a></li>
@@ -44,6 +41,7 @@
 <?php
 	$user_id=$_SESSION['SESS_MEMBER_ID'];
 	$note_id=$_GET['id'];
+	$_SESSION['note_id']=$note_id;
 	
 	$connect=mysqli_connect("localhost","root","");
 	if (mysqli_connect_errno()) 
@@ -97,7 +95,7 @@
 			<table style="width:0%" align="center" class="table table-bordered table-hover table-condensed">
 				<tr>
 					<td>Note ID: </td>
-					<td><input type="text" name="note_id"  disabled value="<?php echo $note_id; ?>"></td>
+					<td><input type="text" name="note_id" disabled value="<?php echo $note_id; ?>"></td>
 				</tr>
 				<tr>
 					<td>Group: </td>						

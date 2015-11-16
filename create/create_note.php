@@ -30,9 +30,6 @@
           				</ul>
 					</li>
         			<li><a href="../display/disp.php">Display</a></li>
-					<li><a href="../search/search.php">Search</a></li>
-					<li><a href="../update/update.php">Update</a></li>
-					<li><a href="../delete/del_disp.php">Delete</a></li>
       			</ul>
 				<ul class="nav navbar-nav navbar-right">
         			<li><a href='../index.php'><span class="glyphicon glyphicon-off"></span> Log Out</a></li>
