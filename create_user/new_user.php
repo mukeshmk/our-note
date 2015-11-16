@@ -26,7 +26,7 @@
 	$c="USE dbms_pro;";
 	$c1=mysqli_query($connect,$c);
 
-	$q1="INSERT INTO N_User VALUES('$mem_id','$umn','$fnm','$lnm','$pwrd','$email','$add','$cont','$gender',FALSE)";
+	$q1="INSERT INTO N_User VALUES('$mem_id','$umn','$pwrd','$fnm','$lnm','$email','$add','$cont','$gender',FALSE)";
 	if(!mysqli_query($connect,$q1))
 	{
 		echo"<head>

@@ -97,7 +97,7 @@
 			<table style="width:0%" align="center" class="table table-bordered table-hover table-condensed">
 				<tr>
 					<td>Note ID: </td>
-					<td><input type="text" name="note_id"  required value="<?php echo $note_id; ?>"></td>
+					<td><input type="text" name="note_id"  disabled value="<?php echo $note_id; ?>"></td>
 				</tr>
 				<tr>
 					<td>Group: </td>						

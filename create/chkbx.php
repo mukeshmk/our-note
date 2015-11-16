@@ -1,7 +1,7 @@
 <?php
 	require_once('../login/auth.php');
 	echo('<br><br><br>');
-	$note_id=$_POST['note_id'];
+	//$note_id=$_POST['note_id'];
 	$group=$_POST['group'];
 	$imp=$_POST['imp'];
 	$dtr=$_POST['dtr'];
@@ -14,7 +14,6 @@
 
 	$user_id=$_SESSION['SESS_MEMBER_ID'];
 
-	$_SESSION['note_id']=$note_id;
 	$_SESSION['no_cb']=$no_cb;
 
 	$created=date("Y-m-d");
@@ -28,10 +27,8 @@
 
 	$c="USE dbms_pro;";
 	$c1=mysqli_query($connect,$c);
-
-	$q1="INSERT INTO Note VALUES
+	$q1="INSERT INTO Note(user_id,notes,title,n_group,clr_code,imp,comp) VALUES
 	(
-		'$note_id',
 		'$user_id',
 		'$note',
 		'$title',
@@ -39,13 +36,30 @@
 		'$clr_code',
 		'$imp',
 		'$comp'
-	);";	
+	);";
+	
+	$q1="SELECT * FROM Note;";
+	$w=mysqli_query($connect,$q1);
+	if(!$w)
+	{
+		echo("Error description 3: " . mysqli_error($connect));
+		echo('<br><br>');
+	}
+	if(mysqli_num_rows($w) > 0) 
+    {
+		while ($row = mysqli_fetch_array($w))
+    	{
+    		$note_id = $row['note_id'];
+    	}
+	}
 
 	if(!mysqli_query($connect,$q1))
 	{
 		echo("Error description 1: " . mysqli_error($connect));
 		echo('<br><br>');
 	}
+
+	$_SESSION['note_id']=$note_id;
 
 	$q1="INSERT INTO Date_N VALUES
 	(

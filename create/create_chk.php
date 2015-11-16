@@ -51,8 +51,8 @@
 			<td>
 			<table style="width:0%" align="center" class="table table-bordered table-hover table-condensed">
 				<tr>
-					<td>Note ID: </td>
-					<td><input type="text" name="note_id" required></td>
+					<td>Title: </td>						
+					<td><input type="text" name="title" required></td>
 				</tr>
 				<tr>
 					<td>Group: </td>						
@@ -84,10 +84,6 @@
 			<td>
 			<table style="width:0%" align="right" class="table table-bordered table-hover table-condensed">
 				<tr>
-					<td>Title: </td>						
-					<td><input type="text" name="title" required></td>
-				</tr>
-				<tr>
 					<td>Color Code: </td>						
 					<td>
 						<select name="clr_code" required>
@@ -108,6 +104,10 @@
 				<tr>
 					<td>No of Check Boxes: </td>
 					<td><input type="text" name="no_cb" required></textarea></td>
+				</tr>
+				<tr>
+					<td></td>						
+					<td><input type="text" name ="" disabled></td>
 				</tr>
 			</table>
 			</td>
