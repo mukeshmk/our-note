@@ -83,10 +83,12 @@
 
 	echo("<br><br><br>");
 	mysqli_close($connect);
-?>
-
+	echo'
 	<h1 align="center">Fill these fields:</h1>
-    <body>
+    <body>';
+	if($note!=NULL)
+	{
+?>
         <form action="update_nt.php" method="post" autocomplete="off" id="note_update">
 			<table style="width:0%" align="center">
 			<tr>
@@ -171,5 +173,94 @@
 				<div class="col-sm-6"></div>
 			</div>
         </form>
-    </body>
-</html>
+<?php
+	}
+	else
+	{
+?>
+		<form action="update_chkbx.php" method="post" autocomplete="off" id="note_update">
+			<table style="width:0%" align="center">
+			<tr>
+				
+			<td>
+			<table style="width:0%" align="center" class="table table-bordered table-hover table-condensed">
+				<tr>
+					<td>Note ID: </td>
+					<td><input type="text" name="note_id" disabled value="<?php echo $note_id; ?>"></td>
+				</tr>
+				<tr>
+					<td>Group: </td>						
+					<td>
+						<select name="group" required>
+							<option value="" >Select...</option>
+							<option value="Work" <?php if($group=="Work") echo "selected"; ?> >Work</option>
+							<option value="House" <?php if($group=="House") echo "selected"; ?>>House</option>
+							<option value="Academic" <?php if($group=="Academic") echo "selected"; ?>>Academic</option>
+							<option value="Casual" <?php if($group=="Casual") echo "selected"; ?>>Casual</option>
+							<option value="Personal" <?php if($group=="Personal") echo "selected"; ?>>Personal</option>
+							<option value="Others" <?php if($group=="Others") echo "selected"; ?>>Others</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Important: </td>						
+					<td>
+						<input type="radio" name="imp" value="1" required <?php if($imp=="1") echo "checked"; ?>>Yes
+						<input type="radio" name="imp" value="0" required <?php if($imp=="0") echo "checked"; ?>>No
+					</td>
+				</tr>
+				<tr>
+					<td>Date to Remind:</td>						
+					<td><input type="date" name="dtr" required value="<?php echo $dtr; ?>"></td>
+				</tr>
+			</table>
+			</td>			
+			<td>
+			<table style="width:0%" align="right" class="table table-bordered table-hover table-condensed">
+				<tr>
+					<td>Title: </td>						
+					<td><input type="text" name="title" required value="<?php echo $title; ?>"></td>
+				</tr>
+				<tr>
+					<td>Color Code: </td>						
+					<td>
+						<select name="clr_code" required>
+							<option value="">Select...</option>
+							<option value="Red" <?php if($clr_code=="Red") echo "selected"; ?>>Red</option>
+							<option value="Yellow"<?php if($clr_code=="Yellow") echo "selected"; ?>>Yellow</option>
+							<option value="Blue" <?php if($clr_code=="Blue") echo "selected"; ?>>Blue</option>
+							<option value="Green" <?php if($clr_code=="Green") echo "selected"; ?>>Green</option>
+							<option value="Violet" <?php if($clr_code=="Violet") echo "selected"; ?>>Violet</option>
+							<option value="Others" <?php if($clr_code=="Others") echo "selected"; ?>>Others</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Time to Remind: </td>
+					<td><input type="time" name="ttr" required value="<?php echo $ttr; ?>"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="text" name="" disabled></td>
+				</tr>
+			</table>
+			</td>
+			</tr>
+			</table>
+			<div class="row"></div>
+			<div class="row">
+				<div class="col-sm-5"></div>
+				<div class="col-sm-1">
+					<button type="submit" class="btn btn-info">
+						<span class="glyphicon glyphicon-plus-sign"></span> Next
+					</button>	
+				</div>
+				<div class="col-sm-6"></div>
+			</div>
+        </form>
+<?php
+	}
+	echo '
+	    </body>
+</html>;'
+?>
