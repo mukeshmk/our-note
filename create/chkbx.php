@@ -38,6 +38,12 @@
 		'$comp'
 	);";
 	
+	if(!mysqli_query($connect,$q1))
+	{
+		echo("Error description 1: " . mysqli_error($connect));
+		echo('<br><br>');
+	}
+
 	$q1="SELECT * FROM Note;";
 	$w=mysqli_query($connect,$q1);
 	if(!$w)

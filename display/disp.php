@@ -1,4 +1,3 @@
-
 <?php 
 	require_once('../login/auth.php');
 ?>
@@ -61,6 +60,7 @@
     {  
     	echo "Error fetching data: " . mysqli_error($connect);  
     }
+	
 	if(mysqli_num_rows($result) > 0) 
     {
 		while ($row = mysqli_fetch_array($result))
@@ -109,6 +109,45 @@
                         echo $titles[$x];
                         echo "</h1><hr />";
                         echo $note;
+						if($note==NULL)
+						{
+							$res = mysqli_query($connect,"SELECT chkbox_no, item FROM chkbox WHERE user_id = '"
+												.$_SESSION['SESS_MEMBER_ID']."' and note_id = '".$note_id[$x]."'");
+							if (!$res)  
+    						{  
+    							echo "Error fetching data: " . mysqli_error($connect);  
+    						}
+							if(mysqli_num_rows($res) > 0) 
+    						{
+								while ($ro = mysqli_fetch_array($res))
+    							{
+    								$chkbx_no[] = $ro['chkbox_no'];
+    								$item[] = $ro['item'];
+    							}
+							}
+							$y=0;
+							echo '<table style="width:0%" align="center" class="table table-bordered table-hover table-condensed">
+									<tr style="background-color:white">
+										<td>S.No</td>
+										<td>Item</td>
+									</tr>
+								';
+							foreach ($chkbx_no as $chk):
+                    			echo "<div><h5>";
+								echo '
+  									<tr class="warning">
+    									<td>'.$chk.'</td>
+    									<td>'.$item[$y].'</td> 
+  									</tr>
+								';
+								echo "<br /></div>";
+								$y=$y+1; 
+							endforeach;
+							echo '</table>';
+							unset($chkbx_no);
+							unset($item);
+						}
+						
                         echo "<br />";
                         echo "<br />
                                 <p>                          
