@@ -84,7 +84,6 @@
 		echo("Error description 2: " . mysqli_error($connect));
 		echo('<br><br>');
 	}
-	echo'chkbx';	
 ?>
 		<form action="chk_php.php" method="post" autocomplete="off">
 			<table style="width:0%" align="center" class="table table-bordered table-hover table-condensed">
