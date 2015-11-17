@@ -84,15 +84,44 @@
 		echo("Error description 2: " . mysqli_error($connect));
 		echo('<br><br>');
 	}
-	echo'chkbx';
-	//WRITE YOUR CODE HERE !!!!!!!!!!!!
+	echo'chkbx';	
+?>
+		<form action="chk_php.php" method="post" autocomplete="off">
+			<table style="width:0%" align="center" class="table table-bordered table-hover table-condensed">
+				<?php
+					$q1="SELECT * FROM chkbox WHERE note_id=$note_id and user_id=$user_id";
+					$w=mysqli_query($connect,$q1);
+					if(!$w)
+					{
+						echo("Error description 2: " . mysqli_error($connect));
+						echo('<br><br>');
+					}
+					echo('<td>Check Box ID: </td><td>Item</td>');
+					while($row = mysqli_fetch_array($w))
+					{
+						echo'
+						<tr>
+							<td align="center">'.$row['chkbox_no'].'</td>
+							<td><input type="text" name="chk_box[]" value='.$row["item"].' required></td>
+						</tr>
+						';
+						$_SESSION['no_cb']=$row['chkbox_no']+1;
+					}
+				?>
+			</table>
+			<div class="row"></div>
+			<div class="row">
+				<div class="col-sm-5"></div>
+				<div class="col-sm-1">
+					<button type="submit" class="btn btn-info">
+						<span class="glyphicon glyphicon-plus-sign"></span> Update Check Boxes
+					</button>	
+				</div>
+				<div class="col-sm-6"></div>
+			</div>
+        </form>
+<?php
 	echo("<br><br><br>");
 	mysqli_close($connect);
 
 ?>
-<!-- REMOVE THIS COMMENT LATER ON AFTER YOU ARE DONE !!
-<html>
-	<meta http-equiv="refresh" content="0; URL=../display/disp.php">
-	<meta name="keywords" content="automatic redirection">
-</html>
--->
