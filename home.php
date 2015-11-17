@@ -31,6 +31,18 @@
           				</ul>
 					</li>
         			<li><a href="display/disp.php">Display</a></li>
+					<div class="col-sm-4 col-md-6">
+                    	<form class="navbar-form" role="search" action="display/search.php" method="post">
+                        	<div class="input-group">
+                        		<input class="form-control" placeholder="Search notes" name="q" type="text">
+                        		<div class="input-group-btn">
+                    				<button class="btn btn-default" type="submit">
+                    					<i class="glyphicon glyphicon-search"></i>
+                 					</button>
+                    			</div>
+                			</div>
+                		</form>
+            		</div>
       			</ul>    
 				<ul class="nav navbar-nav navbar-right">
 					<?php 
