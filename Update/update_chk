@@ -1,0 +1,31 @@
+<?php
+	echo('<br><br><br>');
+	
+
+	$user_id=$_SESSION['SESS_MEMBER_ID'];
+	$note_id=$_GET['id'];
+	$no_cb=$_SESSION['no_cb'];
+	$connect=mysqli_connect("localhost","root","");
+	if (mysqli_connect_errno()) 
+	{
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+
+	$c="USE dbms_pro;";
+	$c1=mysqli_query($connect,$c);
+
+	$q1="SELECT * FROM Chkbox WHERE user_id=$user_id AND note_id=$note_id;";
+	$result1 = $connect->query($q1);
+	$chkbx_no=$result1->fetchAll(PDO::FETCH_COLUMN,1);
+	$items = $result1->fetchAll(PDO::FETCH_COLUMN,3);
+	$comp = $result1->fetchAll(PDO::FETCH_COLUMN,4);
+
+	if(!mysqli_query($connect,$q1))
+	{
+		echo("Error description 1: " . mysqli_error($connect));
+		echo('<br><br>');
+	}
+
+	echo("<br><br><br>");
+	mysqli_close($connect);
+?>
