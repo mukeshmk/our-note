@@ -133,14 +133,11 @@
 									</tr>
 								';
 							foreach ($chkbx_no as $chk):
-                    			echo "<div><h5>";
 								echo '
   									<tr class="warning">
     									<td>'.$chk.'</td>
     									<td>'.$item[$y].'</td> 
-  									</tr>
-								';
-								echo "<br /></div>";
+  									</tr>';
 								$y=$y+1; 
 							endforeach;
 							echo '</table>';

@@ -52,7 +52,12 @@
             echo "Unable to locate database."; 
         }
     }
- 
+ 	$result1 = mysqli_query($connect, "DELETE FROM Chkbox where note_id=".$_GET['id']." and user_id=".$_SESSION['SESS_MEMBER_ID']);
+	if (!$result1)  
+    {  
+    	echo "Error fetching data 3: " . mysqli_error($connect);  
+    }
+
 	$result1 = mysqli_query($connect, "DELETE FROM Date_N where note_id=".$_GET['id']." and user_id=".$_SESSION['SESS_MEMBER_ID']);
 	if (!$result1)  
     {  
