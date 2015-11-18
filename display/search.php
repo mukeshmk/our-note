@@ -31,16 +31,18 @@
           		</li>
 				<li><a href="disp.php">Display</a></li>
                 <div class="col-sm-4 col-md-6">
-                   	<form class="navbar-form" role="search" tion="search.php" method="post">
+                   	<form class="navbar-form" role="search" action="search.php" method="post">
                        	<div class="input-group">
                        		<input class="form-control" placeholder="Search notes" name="q" type="text">
                        		<div class="input-group-btn">
-                   				<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                   				<button class="btn btn-default" type="submit">
+                   					<i class="glyphicon glyphicon-search"></i>
+                				</button>
                    			</div>
                 		</div>
                 	</form>
             	</div>
-            </ul>
+			</ul>
         	<ul class="nav navbar-nav navbar-right">
              	<li><a href='../index.php'><span class="glyphicon glyphicon-off"></span> Log Out</a></li>
             </ul>
